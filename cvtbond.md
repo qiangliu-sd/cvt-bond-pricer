@@ -44,7 +44,7 @@ CvtBondPx_t6m.dll exports one C-function to client:
 ```
 // use struct to pack and fetch multiple values
 // px_iv = 0, Pricing; otherwise, Implied-vol
-extern "C" \_\_declspec(dllexport) void cbPDG_orIV(int px_iv, const char\* prm_fn, C_struct\* xyz_o);
+extern "C" __declspec(dllexport) void cbPDG_orIV(int px_iv, const char* prm_fn, C_struct* xyz_o);
 ```
 
 Reference:\
