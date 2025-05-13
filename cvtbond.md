@@ -34,13 +34,13 @@ For soft-call valuation supported, VALUE for KEY provcall_id:
 - aux_rev_binomial	# see [ARB](#arb)
 
 Convert after called or soft-called:
-- Use the CB convert-schedule to convert
+- As default, use the CB convert-schedule to convert
 - Two keys can be added in **convbond.json**
   - cvt_after_call_schd		date|ratio   # schedule
   - cvt_after_pc_schd		date|ratio   # schedule
 
 
-CvtBondPx_t6m.dll exports one C-function to client:
+**CvtBondPx_t6m.dll** exports one C-function to client:
 ```
 // use struct to pack and fetch multiple values
 // px_iv = 0, Pricing; otherwise, Implied-vol
@@ -50,10 +50,8 @@ extern "C" __declspec(dllexport) void cbPDG_orIV(int px_iv, const char* prm_fn, 
 References:\
 <a name="afv"></a>AFV\
 Ayache, Forsyth, Vetzal (2003). The valuation of convertible bonds with credit risk. Journal of Derivatives.
-
 <a name="crp"></a>CRP\
 Liu, Guo (2020). An excellent approximation for the m out of n day provision. North American Journal of Economics and Finance.
-
 <a name="arb"></a>ARB\
 Liu, Guo (2008). Approximating the embedded m out of n day soft-call option of a convertible bond: An auxiliary reversed binomial tree method. SSRN
 
