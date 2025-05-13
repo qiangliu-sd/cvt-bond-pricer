@@ -48,11 +48,13 @@ extern "C" __declspec(dllexport) void cbPDG_orIV(int px_iv, const char* prm_fn, 
 ```
 
 References:\
-<a name="afv">AFV</a>
-AFV: Ayache, Forsyth, Vetzal (2003). The valuation of convertible bonds with credit risk. Journal of Derivatives.\
-<a name="crp"></a>
-CRP: Liu, Guo (2020). An excellent approximation for the m out of n day provision. North American Journal of Economics and Finance.\
-<a name="arb"></a>
-ARB: Liu, Guo (2008). Approximating the embedded m out of n day soft-call option of a convertible bond: An auxiliary reversed binomial tree method. SSRN
+<a name="afv"></a>AFV\
+Ayache, Forsyth, Vetzal (2003). The valuation of convertible bonds with credit risk. Journal of Derivatives.
+
+<a name="crp"></a>CRP\
+Liu, Guo (2020). An excellent approximation for the m out of n day provision. North American Journal of Economics and Finance.
+
+<a name="arb"></a>ARB\
+Liu, Guo (2008). Approximating the embedded m out of n day soft-call option of a convertible bond: An auxiliary reversed binomial tree method. SSRN
 
 
