@@ -25,13 +25,13 @@ Input parameters (KEY-VALUE pairs):
 - Can be edited directly in the parameters-file with KEY-VALUE pairs (and read into the C++ pricer)
 
 For example, KEY for the PDE model and its VALUE in the parameters-file:
-- pde_model_id	afv_convbond_pde	# see AFV
+- pde_model_id	afv_convbond_pde	# see [AFV](#afv)
 
 Soft-call valuation supported: VALUE for KEY provcall_id:
-- cond_range_prob	# see CRP
+- cond_range_prob	# see [CRP](#crp)
 - navin_algorithm	# see CRP
 - one_touch			# see CRP
-- aux_rev_binomial	# see ARB
+- aux_rev_binomial	# see [ARB](#arb)
 
 Convert after call or soft-call:
 - Use the CB Convert-schedule to convert
@@ -48,8 +48,11 @@ extern "C" __declspec(dllexport) void cbPDG_orIV(int px_iv, const char* prm_fn, 
 ```
 
 Reference:\
+<a name="afv"></a>
 AFV: Ayache, Forsyth, Vetzal (2003). The valuation of convertible bonds with credit risk. Journal of Derivatives.\
+<a name="crp"></a>
 CRP: Liu, Guo (2020). An excellent approximation for the m out of n day provision. North American Journal of Economics and Finance.\
+<a name="arb"></a>
 ARB: Liu, Guo (2008). Approximating the embedded m out of n day soft-call option of a convertible bond: An auxiliary reversed binomial tree method. SSRN
 
 
