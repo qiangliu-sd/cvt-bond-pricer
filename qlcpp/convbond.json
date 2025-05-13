@@ -1,0 +1,173 @@
+{ 
+"__note__conv_bond_":
+{
+	"format-of-this-JSON": "key: value == [caption, input <,tooltip, validator>(optional)]",
+	"key": "89 keys are wrote into params.file and used by C++ executable. Do NOT modify",
+	"value": "caption (py-Label)-input (py-Entry) pair within square-brackets",
+	"schedule-key": "caption-input pairs show sequentially on GUI. placed LAST on GUI",
+	"input-choice": "cpp_input-list (py-OptionMenu)",
+	"no-caption": "if EMPTY string as caption, do NOT show on GUI, but write to params.file",
+	"gkey_": "GUI-only info. hard-coded in GUI. Do NOT modify",
+	"validator": "<date_us, non_minus, plus, btw_2_7> (dynamic-range is encoded in btw_2_7, handled as default of switch-case, and passed to validating-event via TextBox.Tag in CSharp)"
+},
+"Tooltips":
+{
+	"date_fmt": "US date: month/day/year",
+	"not_neg": "Value: Zero or positive",
+	"nn_dollar": "Dollar alue: Zero or positive",
+	"nn_percent": "Value (5% as 0.05): Zero or positive",
+	"positive": "Value: Positive",
+	"dollar": "Dollar alue: Positive",
+	"percent": "Value (5% as 0.05): Positive",
+	"has_cash_schedule":"false: in bond points (DEFAULT)\ntrue: in dollar (b-point:=10 USD or 1 CNY)",
+	"first_coupon_date":"used only to build schedule for Step-up coupons",
+	"coupon_schedule":"[has_cash_schedule]:\nfalse> Annual rate 5% as 0.05 (One date|rate: fixed coupon; More: Step-up coupons)\ntrue> All coupon amounts",
+	"is_stepup_cpn":"Set to false: if only one date|rate in [coupon_schedule]",
+	"provcall_terms": "days above|days total|trigger-px|consecutive",
+	"stock_closes":"1st-bit: yesterday; 2nd-bit: day before yesterday...\n1: close-above; 0: close-below",
+	"provput_terms":"days below|days total|trigger-px|consecutive",
+	"stock_closes_pput":"1st-bit: yesterday; 2nd-bit: day before yesterday...\n1=close-below; 0=close-above",
+	"afv": "Ayache-Forsyth-Vetzal (2003)",
+	"afv_eta":"1.0: stock px jumps to zero; 0: stock px stays the same at default",
+	"recover_face":"nominal amount used to calculate the amount recovered at default",
+	"crp": "conditional range probability (Liu-Guo, 2020)"
+},
+"Convert": 
+{
+	"derivative_trd_name": ["Conv-bond name", "ABC firm"],
+	"par_nominal": ["Conv-bond par", "100","positive","plus"],
+	"maturity": ["CB mature date", "3/2/2026", "date_fmt","date_us"],
+	"cvt_notice_period": ["Convert notice period (days)",  "0"],
+	"convert_cash": ["Cash amount in convert", "0", "not_neg","non_minus"],
+	"has_convert_accr": ["Accrued-int in convert?", ["false","true"]],
+	"has_cash_schedule": ["Cash schedules?",  ["false","true"],"has_cash_schedule"],
+	"is_forced_matur_conv": ["", "false"],
+	"convert_schedule": ["Convert start date","9/7/2020"],
+	"convert_schedule2": [ "Convert ratio",  "20.5339"]
+},
+"Coupon":
+{
+	"coupon_frequency":["Annual coupon frequency", "1","positive","plus"],
+	"coupon_rate":["Annual coupon rate", "0.01","nn_percent"],
+	"first_coupon_date":["First coupon date", "3/2/2021","first_coupon_date","date_us"],
+	"1st_cpn_accr_date":["First accrued-int date", "3/2/2020","date_fmt" ],
+	"cpn_notice_period":["Coupon notice period (days)", "0"],
+	"is_stepup_cpn":["Step-up coupon?", ["true", "false"], "is_stepup_cpn"],
+	"coupon_schedule": ["Coupon date|rate-1", "3/2/2021|0.004", "coupon_schedule"],
+	"coupon_schedule2":["Coupon date|rate-2", "3/2/2022|0.006"],
+	"coupon_schedule3":["Coupon date|rate-3", "3/2/2023|0.010"],
+	"coupon_schedule4":["Coupon date|rate-4", "3/2/2024|0.015"],
+	"coupon_schedule5":["Coupon date|rate-5", "3/2/2025|0.018"],
+	"coupon_schedule6":["Coupon date|rate-6", "3/2/2026|0.020"],
+	"coupon_schedule7":["Coupon date|rate-7", "3/2/2027|0"],
+	"coupon_schedule8":["Coupon date|rate-8", "3/2/2028|0"],
+	"coupon_schedule9":["Coupon date|rate-9", "3/2/2029|0"],
+	"coupon_schedule10":["Coupon date|rate-10","3/2/2030|0"]
+},
+"Call":
+{
+	"gkey_call":["Callable?", [ "true","false"]],
+	"call_premium":["Call premium", "1","positive","plus"],
+	"call_notice_period":["Call notice period (days)", "0"],
+	"call_cash":["Call cash amount", "0"],
+	"has_call_accr":["Accrued-int in Call?" , [ "true","false"]],
+	"do_notice_opt":["Option in Call notice-period?", [ "false","true"]],
+	"cvt_cash_after_call":["Cash in convert after call", "0"],
+	"has_cvt_accr_after_call":["Accrued-int in convert after call?", [ "false","true"]],
+	"oid":["","0"],
+	"oid_face":["","100"],
+	"call_start_date":["Call start date", "3/2/2026","date_fmt","date_us"],
+	"call_schedule":["Call value", "110"]
+},
+"ProvCall":
+{
+	"gkey_pc":["Provisional callable?", [ "true","false"]],
+	"provcall_terms":["Prov-call terms", "15|30|6.33|false","provcall_terms"],
+	"prov_call_cash":["Prov-call cash amount", "0","not_neg","non_minus"],
+	"has_prov_call_accr":["Accrued-int in Prov-call?", [ "true","false"]],
+	"cvt_cash_after_pcall":["Cash in convert after P-call", "0"],
+	"has_cvt_accr_after_pcall":["Accrude-int in convert after P-call?", [ "false","true"]],
+	"stock_closes":["Stock closing prices", "110100111"],
+	"provcall_id":["Prov-call valuing method", ["cond_range_prob","one_touch","aux_rev_binomial","navin_algorithm"]],
+	"crp_num_paths":["Number of paths (CRP)", "50000", "crp"],
+	"prov_call_end_date":["Prov-call end date", "3/1/2026","date_fmt","date_us"],
+	"pcall_steps_aday":["","20"],
+	"do_detailed_pcall":["", "false"],
+	"provcall_schedule":["Prov-call start date", "9/7/2020"],
+	"provcall_schedule2":["Prov-call value", "100"],
+	"stk_trigger_schedule":["", "trigger FROM provcall_terms"]
+},
+"Put":
+{
+	"gkey_put":["Putable?", [ "false","true"]],
+	"put_on_single_day":["Put only on one day?", [ "false","true"]],
+	"put_notice_period":["Put notice period (days)", "0","not_neg","non_minus"],
+	"has_put_accr":["Accrued-int in put?", ["true","false"]],
+	"put_end_date":["Put end date", "2/1/2011","date_fmt","date_us"],
+	"put_schedule":["Put start date", "1/1/2011"],
+	"put_schedule2":["Putable value", "100"]
+},
+"ProvPut":
+{
+	"gkey_pp":["provisional putable?", ["true","false"]],
+	"provput_terms":["Prov-put terms", "30|30|3.41|true","provput_terms"],
+	"has_prov_put_accr":["Accrued-int in Prov-put?", ["true","false"]],
+	"stock_closes_pput":["Stock closing prices", "11100110", "stock_closes_pput"],
+	"pp_crp_num_paths":["Number of paths (CRP)", "50000","crp","plus"],
+	"prov_put_end_date":["Prov-put end date", "3/1/2026","date_fmt","date_us"],
+	"provput_schedule":["Prov-put start date", "3/2/2024"],
+	"provput_schedule2":["Prov-put value", "100"]
+},
+"FiniteDiff":
+{
+	"diffuse_method_id":["Diffuser", ["crank_nicolson","explicit_finite","implicit_finite"]],
+	"finitediff_steps":["Number of time steps", "2000","positive","plus"],
+	"pde_model_id":["PDE model", ["afv_convbond_pde","blackscholes_pde"]],
+	"hazard_rate":["Annual hazard rate (AFV)", "0.02", "afv"],
+	"recovery":["Recovery rate (AFV)", "0","nn_percent"],
+	"recover_face":["Recovery face (AFV)", "1.0", "recover_face"],
+	"afv_eta":["Ratio of stock price jump at default (AFV)", "0", "afv_eta", "btw_0_1"],
+	"max_drift":["","0.25"],
+	"interp_id":["", "npoint_interp"],
+	"interp_degree":["","5"],
+	"interp_mode_id":["", "np_following"] 
+},
+"PxIV":
+{
+	"value_date":["Valuation date", "8/18/2021","date_fmt","date_us"],
+	"underlying_px":["Stock price", "8.93","positive","plus"],
+	"derivative_px":["CB market price", "192.13","positive"],
+	"credit_spread":["Annual credit spread (bps)", "0"],
+	"volatility_series":["Annual stock volatility", "0.4","percent"],
+	"disc_rate_series":["Annual CC risk-free rate", "0.05","nn_percent"],
+	"gkey_cpp":["CB pricing dll/exe", "CvtBondPx_t6m.dll"],
+	"gkey_dir":["Full path of this CB-GUI", "work_dir"],
+	"gkey_PxIv":["Pricing or Solving IV", ["Do price","Do implied volatility"] ],
+	"gkey_cbPx":["CB Fair price", ""],
+	"gkey_delta":["Delta", ""],
+	"gkey_gamma":["Gamma", ""],
+	"gkey_iv":["Implied volatility", ""]
+},
+"CBDefault":
+{
+	"deriv_px_method_id":"finite_difference",
+	"grid_dimension_id":"grid_2d",
+	"derivative_id":"conv_bond",
+	"underlying_id":"common_stock",
+	"ebd_opt_pricer_id":"blackscholes_formula",
+	"disc_rate_id":"flat_step",
+	"cb_parity_id":"cb_linear",
+	"do_theta":"false",
+	"is_perpetual_cb":"false",
+	"continuous_div_yield":"0",
+	"next_div_date":"20990101",
+	"proportional_div":"0",
+	"div_frequency":"1",
+	"fixed_dividend":"0",
+	"div_interp_id":"npoint_interp",
+	"div_interp_degree":"3",
+	"div_interp_mode_id":"np_preceeding",
+	"loan_fee_cb":"0",
+	"stock_loan_fee":"0"
+}
+}   
