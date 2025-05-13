@@ -27,14 +27,13 @@ Input parameters (KEY-VALUE pairs):
 For example, KEY for the PDE model and its VALUE in the parameters-file:
 - pde_model_id	afv_convbond_pde	# see AFV
 
-Soft-call valuation supported:\
-VALUE for KEY provcall_id:
+Soft-call valuation supported: VALUE for KEY provcall_id:
 - cond_range_prob	# see CRP
 - navin_algorithm	# see CRP
 - one_touch			# see CRP
 - aux_rev_binomial	# see ARB
 
-Convert after call or Soft-call:
+Convert after call or soft-call:
 - Use the CB Convert-schedule to convert
 - Two keys can be added into **convbond.json**
   - cvt_after_call_schd		date|ratio   # schedule
@@ -42,9 +41,11 @@ Convert after call or Soft-call:
 
 
 CvtBondPx_t6m.dll exports one C-function to client:
-> // use struct to pack and fetch multiple values
-> // px_iv = 0, Pricing; otherwise, Implied-vol
-> extern "C" \_\_declspec(dllexport) void cbPDG_orIV(int px_iv, const char\* prm_fn, C_struct\* xyz_o);
+```
+// use struct to pack and fetch multiple values
+// px_iv = 0, Pricing; otherwise, Implied-vol
+extern "C" \_\_declspec(dllexport) void cbPDG_orIV(int px_iv, const char\* prm_fn, C_struct\* xyz_o);
+```
 
 Reference:\
 AFV: Ayache, Forsyth, Vetzal (2003). The valuation of convertible bonds with credit risk. Journal of Derivatives.\
