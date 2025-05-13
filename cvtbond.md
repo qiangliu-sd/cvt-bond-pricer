@@ -1,5 +1,5 @@
 # Convertible Bond (CB) Pricing
-	An introduction
+	A brief introduction
 	
 ### CB Business Logic
 	A convertible bond is a corporate debt that can be converted to the stock of the CB issuer
@@ -27,15 +27,15 @@ Input parameters (KEY-VALUE pairs):
 For example, KEY for the PDE model and its VALUE in the parameters-file:
 - pde_model_id	afv_convbond_pde	# see [AFV](#afv)
 
-Soft-call valuation supported: VALUE for KEY provcall_id:
+For soft-call valuation supported, VALUE for KEY provcall_id:
 - cond_range_prob	# see [CRP](#crp)
 - navin_algorithm	# see CRP
 - one_touch			# see CRP
 - aux_rev_binomial	# see [ARB](#arb)
 
-Convert after call or soft-call:
-- Use the CB Convert-schedule to convert
-- Two keys can be added into **convbond.json**
+Convert after called or soft-called:
+- Use the CB convert-schedule to convert
+- Two keys can be added in **convbond.json**
   - cvt_after_call_schd		date|ratio   # schedule
   - cvt_after_pc_schd		date|ratio   # schedule
 
@@ -47,8 +47,8 @@ CvtBondPx_t6m.dll exports one C-function to client:
 extern "C" __declspec(dllexport) void cbPDG_orIV(int px_iv, const char* prm_fn, C_struct* xyz_o);
 ```
 
-Reference:\
-<a name="afv"></a>
+References:\
+<a name="afv">AFV</a>
 AFV: Ayache, Forsyth, Vetzal (2003). The valuation of convertible bonds with credit risk. Journal of Derivatives.\
 <a name="crp"></a>
 CRP: Liu, Guo (2020). An excellent approximation for the m out of n day provision. North American Journal of Economics and Finance.\
