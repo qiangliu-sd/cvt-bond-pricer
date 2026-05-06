@@ -9,7 +9,7 @@
 5. Compute implied volatility;
 6. Include or exclude CB clauses (i.e., choices) easily;
 7. Unbeatable speed;
-8. See GUI tooltips & [convertible bond info & pricing](https://qiang-liu.com/ql_md_template.html?my.md=finapp/cvtbond-app.md) for business logic.
+8. See GUI tooltips & [convertible bond info & pricing](https://qiang-liu.com/ql_md_template.html?my.md=finapps/cvtbond-app.md) for business logic.
 	
 ### How to run:
 1. double-click **pxCBGui.exe**;
