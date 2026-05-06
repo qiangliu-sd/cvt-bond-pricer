@@ -1,20 +1,20 @@
 # Convertible Bond (CB) Pricer
 	A comprehensive high-performance (C++) CB pricing tool
-	
+
 ### Features:
-1. Include my own algorithm (CRP) for provisional call/put;
+1. Include my CRP algorithm for provisional call/put;
 2. Finite difference solving the BSM or AFV PDE;
 3. Suitble for US or China market;
 4. Output price, delta, and gamma at once;
 5. Compute implied volatility;
 6. Include or exclude CB clauses (i.e., choices) easily;
 7. Unbeatable speed;
-8. See GUI tooltips & [convertible bond terms](cvtbond.md) for business logic.
-
+8. See GUI tooltips & [convertible bond info & pricing](https://qiang-liu.com/ql_md_template.html?my.md=finapp/cvtbond-app.md) for business logic.
+	
 ### How to run:
 1. double-click **pxCBGui.exe**;
 2. update GUI inputs, if necessary;
-3. click the Compute button.
+3. click the **Compute** button.
 	
 Dir Structure (automatically generated):
 - qllog: sub-dir for storing pricing result files (dpx\_\*.txt & err\_\*.log, among others). The sub-dir name, **qllog**, is hard-coded in C++
@@ -24,9 +24,38 @@ Dir Structure (automatically generated):
 System requirements:
 - Windows OS
 
-
-No installation needed! Download and enjoy it for free.\
+No installation needed! Download and enjoy the App for free. It does no harm and is safe to use.\
 *If you are interested in using the CB pricer*, [Contact me](mailto:ql12@cornell.edu).
+
+### CB C++ pricer setup
+	Finite difference solving the BSM or AFV PDE
+
+Input parameters (KEY-VALUE pairs):
+- The keys and their sample values are in **convbond.json**
+- The keys' literal names and sample values are in the GUI
+- Can be edited directly in the parameters-file with KEY-VALUE pairs (and read into the C++ pricer)
+
+For example, KEY for the PDE model and its VALUE in the parameters-file:
+- pde_model_id	afv_convbond_pde
+
+For soft-call valuation supported, VALUE for KEY provcall_id:
+- cond_range_prob	# see CRP
+- navin_algorithm	# see CRP
+- one_touch			# see CRP
+- aux_rev_binomial	# see ARB
+
+Convert after called or soft-called:
+- As default, use the CB convert-schedule to convert
+- Two keys can be added in **convbond.json**
+  - cvt_after_call_schd		date|ratio   # schedule
+  - cvt_after_pc_schd		date|ratio   # schedule
+
+**CvtBondPx_t6m.dll** exports one C-function to client:
+```
+// use struct to pack and fetch multiple values
+// px_iv = 0, Pricing; otherwise, Implied-vol
+extern "C" __declspec(dllexport) void cbPDG_orIV(int px_iv, const char* prm_fn, C_struct* xyz_o);
+```
 
 Note:\
 The dll expires in **six months** after its compilation time.
