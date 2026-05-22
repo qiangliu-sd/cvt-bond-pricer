@@ -24,7 +24,7 @@ Dir Structure (automatically generated):
 System requirements:
 - Windows OS
 
-No installation needed! Download and enjoy the App for free. It does no harm and is safe to use.\
+No installation needed! Download and enjoy the App for free. It does no harm and is safe to use (digitally signed by me).\
 *If you are interested in using the CB pricer*, [Contact me](mailto:ql12@cornell.edu).
 
 ### CB C++ pricer setup
